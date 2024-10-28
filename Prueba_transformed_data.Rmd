@@ -1,0 +1,50 @@
+---
+title: "Question1"
+output: html_document
+date: "2024-10-28"
+---
+
+```{r setup, include=TRUE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r}
+#Load libraries
+library(tidyverse)
+library(dplyr)
+
+#Load dataset mtcars 
+
+data(mtcars)
+
+#Create function to transform data
+transformed_data <- function(data) {
+  data_2 <- data %>%
+    mutate(new_column= rownames(data)) %>% #Add a new column with the names of the rows
+    select(new_column,1:2) #Select only the new column and the 2 first columns of the dataset
+  return(data_2)
+}
+
+# Calling the function and assigning the result to a new daatset
+transformed_mtcars <- transformed_data(mtcars)
+
+# Printing the results
+print(transformed_mtcars)
+
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
