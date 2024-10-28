@@ -433,6 +433,17 @@ print(transformed_mtcars)</code></pre>
 <div id="second-transformation" class="section level2">
 <h2>Second Transformation</h2>
 <p>You can also embed plots, for example:</p>
+<pre class="r"><code>#Creating the function to group the information by the first column
+grouped_data &lt;- function(data_new) {
+  data_3 &lt;- data_new %&gt;%
+    group_by(across(1)) %&gt;% #Grouping by the first column
+    summarise(count=n()) #Present the number of unit that match wit the category of the first column
+  return(data_3)
+}
+# Calling the function and assigning the result to a new daatset
+grouped_mtcars &lt;- grouped_data(transformed_mtcars) 
+#Printing the results
+print(grouped_mtcars)</code></pre>
 <pre><code>## # A tibble: 32 × 2
 ##    new_column         count
 ##    &lt;chr&gt;              &lt;int&gt;
