@@ -45,7 +45,7 @@ You can also embed plots, for example:
 
 ```{r pressure, echo=FALSE}
 #Creating the function to group the information by the first column
-grouped_data <- function(data) {
+grouped_data <- function(data_new) {
   data_3 <- data %>%
     group_by(across(1)) %>% #Grouping by the first column
     summarise(count=n()) #Present the number of unit that match wit the category of the first column
