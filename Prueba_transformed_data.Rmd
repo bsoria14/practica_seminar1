@@ -39,12 +39,22 @@ print(transformed_mtcars)
 
 ```
 
-## Including Plots
+## Second Transformation
 
 You can also embed plots, for example:
 
 ```{r pressure, echo=FALSE}
-plot(pressure)
+#Creating the function to group the information by the first column
+grouped_data <- function(data) {
+  data_3 <- data %>%
+    group_by(across(1)) %>% #Grouping by the first column
+    summarise(count=n()) #Present the number of unit that match wit the category of the first column
+  return(data_3)
+}
+# Calling the function and assigning the result to a new daatset
+grouped_mtcars <- grouped_data(transformed_mtcars) 
+#Printing the results
+print(grouped_mtcars)
 ```
 
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
