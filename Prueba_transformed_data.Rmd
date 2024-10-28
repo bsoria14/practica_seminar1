@@ -43,7 +43,7 @@ print(transformed_mtcars)
 
 You can also embed plots, for example:
 
-```{r pressure, echo=FALSE}
+```{r pressure, echo=TRUE}
 #Creating the function to group the information by the first column
 grouped_data <- function(data_new) {
   data_3 <- data_new %>%
